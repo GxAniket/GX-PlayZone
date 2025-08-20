@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Zone</title>
+  <meta name="description" content="Game Zone – your ultimate gaming destination. Play Snake, Tic-Tac-Toe, Car Racing and more." />
+  <meta name="theme-color" content="#2b1055" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-start: #29109b;
+      --bg-end: #7d4caf;
+      --surface: rgba(255, 255, 255, 0.9);
+      --text-on-surface: #0f0f10;
+      --text-on-hero: #ede9e9;
+      --brand: #ffda3b;
+      --nav: #170116;
+      --nav-accent: #8f1010;
+      --shadow-1: 0 6px 10px rgba(0, 0, 0, 0.3);
+      --shadow-2: 0 10px 20px rgba(0, 0, 0, 0.5);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background-image: linear-gradient(to bottom, var(--bg-start), var(--bg-end));
+      color: var(--text-on-hero);
+    }
+    header {
+      background: linear-gradient(90deg, var(--nav-accent), #b91c1c);
+      padding: 28px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 6px; font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem); }
+    header p { margin: 0; opacity: 0.9; }
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in oklab, var(--nav) 85%, #000);
+      backdrop-filter: saturate(1.2) blur(6px);
+      box-shadow: var(--shadow-1);
+    }
+    .nav-inner {
+      display: flex; align-items: center; gap: 12px;
+      max-width: 1100px; margin: 0 auto; padding: 10px 16px;
+    }
+    .links { display: flex; gap: 18px; margin: 0 auto; align-items: center; justify-content: center; }
+    .links a {
+      color: #fff; text-decoration: none; font-weight: 600;
+      padding: 8px 10px; border-radius: 10px; transition: transform .2s, background .2s;
+    }
+    .links a:hover { background: #2a1530; transform: translateY(-1px); }
+    @media (max-width: 860px) {
+      .links { display: none; position: absolute; inset: 56px 12px auto;
+        flex-direction: column; background: #1a0b1a; border-radius: 14px; padding: 12px; }
+      .links.open { display: flex; }
+      .menu-toggle { display: block; }
+    }
+    .hero {
+      min-height: 50vh; display: grid; place-items: center; text-align: center;
+      background: center/cover no-repeat var(--bg-end);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      padding: 24px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 28px 16px; }
+    .container h2 { text-align: center; margin: 0 0 14px; }
+    .muted { opacity: 0.85; text-align: center; margin-bottom: 18px; }
+    .games { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .game-item {
+      background: var(--surface); color: var(--text-on-surface);
+      padding: 16px; border-radius: var(--radius); box-shadow: var(--shadow-1);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .game-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); }
+    .game-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+    .video-grid iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+    }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .contact-links a {
+      color: #fff;
+      background: #8f1010;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .contact-links a:hover {
+      background: #b91c1c;
+    }
+    footer { background: #212121; color: #fff; text-align: center; padding: 16px; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Game Zone</h1>
+    <p>Your ultimate gaming destination!</p>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <div id="navLinks" class="links">
+        <a href="#games">Games</a>
+        <a href="#video">Demo Videos</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <h1>Let the Adventure Begin!</h1>
+  </section>
+
+  <main id="main" class="container">
+    <section id="games">
+      <h2>Our Games</h2>
+      <p class="muted">Browse and play your favorites.</p>
+      <div class="games">
+        <article class="game-item">
+          <img src="assets/snake-apple.webp" alt="Snake game" />
+          <h3>Snake Game</h3>
+          <p>Classic snake. Eat apples, grow long, don’t crash.</p>
+        </article>
+        <article class="game-item">
+          <img src="assets/tic-tac-toe.png" alt="Tic Tac Toe" />
+          <h3>Tic-Tac-Toe</h3>
+          <p>Battle the CPU in a quick best-of-five.</p>
+        </article>
+        <article class="game-item">
+          <img src="assets/car-racing.png" alt="Car Racing" />
+          <h3>Car Racing</h3>
+          <p>Fast-paced racer. Overtake, collect boosts, win.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Demo Videos Section -->
+    <section id="video">
+      <h2>Game Demo Videos</h2>
+      <p class="muted">Watch our latest gameplay demos on YouTube!</p>
+      <div class="video-grid">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1"
+          title="Game Demo 1" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2"
+          title="Game Demo 2" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"
+          title="Game Demo 3" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="muted">Built by <strong>Aniket Sundriyal</strong> (aka Gx aniket). Clean UI, smooth vibes, and games that just hit.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="muted">Got ideas or bugs? Reach out to me below 👇</p>
+      <div class="contact-links">
+        <a href="mailto:sundriyalaniket@gmail.com">📧 Email</a>
+        <a href="https://www.linkedin.com/in/aniket-sundriyal" target="_blank">💼 LinkedIn</a>
+        <a href="https://github.com/Gxaniket" target="_blank">🐙 GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Aniket Sundriyal • Gx aniket.yt</p>
+  </footer>
+
+  <script>
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
