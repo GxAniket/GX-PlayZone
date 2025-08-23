@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aniket's Portfolio</title>
+    <title>Aniket Sundriyal's Portfolio</title>
     <!-- Favicon - you can replace this with your own -->
     <link rel="icon" href="https://placehold.co/32x32/1e293b/ffffff?text=P" type="image/x-icon">
     <!-- Google Fonts for Inter -->
@@ -27,6 +27,25 @@
                         'text-light': '#f8fafc',
                         'accent-blue': '#38bdf8',
                         'accent-blue-hover': '#0ea5e9',
+                    },
+                    animation: {
+                        'fade-in-down': 'fadeInDown 1s ease-in-out',
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'fade-in-up': 'fadeInUp 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
                     },
                 }
             }
@@ -70,7 +89,7 @@
         <!-- Hero Section -->
         <section id="hero" class="text-center">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-fade-in-down">
-                Hello, I'm <span class="text-accent-blue">Aniket</span>
+                Hello, I'm <span class="text-accent-blue">Aniket Sundriyal</span>
             </h1>
             <p class="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 animate-fade-in">
                 A passionate web developer building interactive and user-friendly web applications.
@@ -89,10 +108,7 @@
         <section id="about" class="bg-secondary-dark p-8 rounded-xl shadow-lg border border-gray-700">
             <h2 class="text-3xl font-bold mb-6 border-b-2 border-accent-blue pb-2 inline-block">About Me</h2>
             <p class="text-gray-300 text-lg">
-                I am a dedicated front-end developer with a strong foundation in HTML, CSS, and JavaScript. My goal is to create clean, efficient, and dynamic web experiences. I am always eager to learn new technologies and improve my skills to build high-quality applications.
-            </p>
-            <p class="text-gray-300 mt-4 text-lg">
-                My projects reflect my passion for problem-solving and my commitment to writing clean and maintainable code. I enjoy turning ideas into reality and am always looking for new challenges.
+                Hey! I’m Aniket — a gamer, full-stack developer, and AI/ML enthusiast. I’ve completed the Amazon Junior Software Engineer program and an IBM Machine Learning course, which strengthened my skills in building scalable software and AI-powered applications. I love creating immersive games, full-stack web apps, and exploring AI solutions. My toolkit includes HTML, CSS, JavaScript, React, Python, and AI/ML technologies. I’m passionate about turning ideas into functional projects and continuously learning new technologies to innovate digital experiences.
             </p>
         </section>
 
@@ -308,7 +324,7 @@
             <p class="text-lg text-gray-400 mb-8">
                 I'm currently open to new opportunities. Feel free to reach out!
             </p>
-            <a href="mailto:your-email@example.com" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg">
+            <a href="mailto:sundriyalaniket@gmail.com" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg">
                 Email Me
             </a>
         </section>
@@ -318,15 +334,23 @@
     <!-- Footer -->
     <footer class="bg-secondary-dark p-6 text-center text-gray-400 border-t border-gray-700">
         <p>&copy; 2024 Aniket. All Rights Reserved.</p>
-        <div class="mt-4 space-x-4">
-            <!-- Social Media Icons (replace with your links) -->
-            <a href="#" target="_blank" class="hover:text-accent-blue transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block"><path d="M15 22l-1.543-1.043l-1.543 1.043L9.5 22v-6H7.5V9.5h-2V7.5h2V5.5a4.5 4.5 0 0 1 4.5-4.5h2.5v2h-2.5c-.552 0-1 .448-1 1v2h3L14.5 9.5h-3v6h4z"></path></svg>
+        <div class="mt-4 flex justify-center space-x-4">
+            <a href="https://github.com/GxAniket" target="_blank">
+                <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
             </a>
-            <a href="#" target="_blank" class="hover:text-accent-blue transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block"><path d="M12 2.163c3.204 0 3.584.012 4.85.07c3.252.148 4.698 1.408 4.848 4.61.058 1.265.07 1.645.07 4.849 0 3.203-.012 3.583-.07 4.848-.15 3.252-1.408 4.698-4.61 4.848-1.265.058-1.645.07-4.849.07-3.203 0-3.583-.012-4.848-.07-3.252-.15-4.698-1.408-4.848-4.61-.058-1.265-.07-1.645-.07-4.849 0-3.203.012-3.583.07-4.848.15-3.252 1.408-4.698 4.61-4.848 1.265-.058 1.645-.07 4.849-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.212-6.541 2.394-6.753 6.752-.058 1.28-.072 1.688-.072 4.947 0 3.259.014 3.668.072 4.948.212 4.358 2.394 6.541 6.753 6.753 1.28.058 1.688.072 4.947.072 3.259 0 3.668-.014 4.948-.072 4.357-.212 6.541-2.394 6.753-6.752.058-1.28.072-1.688.072-4.947 0-3.259-.014-3.667-.072-4.947-.212-4.358-2.394-6.541-6.752-6.753-1.28-.058-1.688-.072-4.947-.072zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.5-10.519a1.442 1.442 0 1 0 0 2.884 1.442 1.442 0 0 0 0-2.884z"></path></svg>
+            <a href="mailto:sundriyalaniket@gmail.com">
+                <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
+            </a>
+            <a href="https://www.linkedin.com/in/aniket-sundriyal" target="_blank">
+                <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+            </a>
+            <a href="https://www.youtube.com/@gxaniket001" target="_blank">
+                <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
             </a>
         </div>
+        <p class="mt-4 text-sm">
+            <a href="mailto:sundriyalaniket@gmail.com" class="hover:underline">sundriyalaniket@gmail.com</a>
+        </p>
     </footer>
 
 </body>
