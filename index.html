@@ -1,195 +1,333 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Game Zone</title>
-  <meta name="description" content="Game Zone – your ultimate gaming destination. Play Snake, Tic-Tac-Toe, Car Racing and more." />
-  <meta name="theme-color" content="#2b1055" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg-start: #29109b;
-      --bg-end: #7d4caf;
-      --surface: rgba(255, 255, 255, 0.9);
-      --text-on-surface: #0f0f10;
-      --text-on-hero: #ede9e9;
-      --brand: #ffda3b;
-      --nav: #170116;
-      --nav-accent: #8f1010;
-      --shadow-1: 0 6px 10px rgba(0, 0, 0, 0.3);
-      --shadow-2: 0 10px 20px rgba(0, 0, 0, 0.5);
-      --radius: 16px;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background-image: linear-gradient(to bottom, var(--bg-start), var(--bg-end));
-      color: var(--text-on-hero);
-    }
-    header {
-      background: linear-gradient(90deg, var(--nav-accent), #b91c1c);
-      padding: 28px 16px;
-      text-align: center;
-    }
-    header h1 { margin: 0 0 6px; font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem); }
-    header p { margin: 0; opacity: 0.9; }
-    nav {
-      position: sticky; top: 0; z-index: 50;
-      background: color-mix(in oklab, var(--nav) 85%, #000);
-      backdrop-filter: saturate(1.2) blur(6px);
-      box-shadow: var(--shadow-1);
-    }
-    .nav-inner {
-      display: flex; align-items: center; gap: 12px;
-      max-width: 1100px; margin: 0 auto; padding: 10px 16px;
-    }
-    .links { display: flex; gap: 18px; margin: 0 auto; align-items: center; justify-content: center; }
-    .links a {
-      color: #fff; text-decoration: none; font-weight: 600;
-      padding: 8px 10px; border-radius: 10px; transition: transform .2s, background .2s;
-    }
-    .links a:hover { background: #2a1530; transform: translateY(-1px); }
-    @media (max-width: 860px) {
-      .links { display: none; position: absolute; inset: 56px 12px auto;
-        flex-direction: column; background: #1a0b1a; border-radius: 14px; padding: 12px; }
-      .links.open { display: flex; }
-      .menu-toggle { display: block; }
-    }
-    .hero {
-      min-height: 50vh; display: grid; place-items: center; text-align: center;
-      background: center/cover no-repeat var(--bg-end);
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-      padding: 24px;
-    }
-    .container { max-width: 1100px; margin: 0 auto; padding: 28px 16px; }
-    .container h2 { text-align: center; margin: 0 0 14px; }
-    .muted { opacity: 0.85; text-align: center; margin-bottom: 18px; }
-    .games { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
-    .game-item {
-      background: var(--surface); color: var(--text-on-surface);
-      padding: 16px; border-radius: var(--radius); box-shadow: var(--shadow-1);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .game-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); }
-    .game-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; }
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin-top: 16px;
-    }
-    .video-grid iframe {
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-    }
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 12px;
-    }
-    .contact-links a {
-      color: #fff;
-      background: #8f1010;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background .2s;
-    }
-    .contact-links a:hover {
-      background: #b91c1c;
-    }
-    footer { background: #212121; color: #fff; text-align: center; padding: 16px; margin-top: 24px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniket's Portfolio</title>
+    <!-- Favicon - you can replace this with your own -->
+    <link rel="icon" href="https://placehold.co/32x32/1e293b/ffffff?text=P" type="image/x-icon">
+    <!-- Google Fonts for Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS configuration for custom colors and fonts -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-dark': '#1e293b',
+                        'secondary-dark': '#334155',
+                        'text-light': '#f8fafc',
+                        'accent-blue': '#38bdf8',
+                        'accent-blue-hover': '#0ea5e9',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>Welcome to Game Zone</h1>
-    <p>Your ultimate gaming destination!</p>
-  </header>
+<body class="bg-primary-dark text-text-light font-sans leading-relaxed transition-colors duration-300">
 
-  <nav>
-    <div class="nav-inner">
-      <div id="navLinks" class="links">
-        <a href="#games">Games</a>
-        <a href="#video">Demo Videos</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+    <!-- Header & Navigation -->
+    <header class="bg-secondary-dark/50 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b border-gray-700">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-accent-blue rounded-full p-2 hover:bg-accent-blue/10 transition-colors">
+                Aniket
+            </a>
+            <div class="space-x-4 hidden md:flex">
+                <a href="#about" class="text-text-light hover:text-accent-blue transition-colors">About</a>
+                <a href="#projects" class="text-text-light hover:text-accent-blue transition-colors">Projects</a>
+                <a href="#contact" class="text-text-light hover:text-accent-blue transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-  <section class="hero" id="home">
-    <h1>Let the Adventure Begin!</h1>
-  </section>
+    <main class="container mx-auto px-4 py-12 md:py-24 space-y-24">
 
-  <main id="main" class="container">
-    <section id="games">
-      <h2>Our Games</h2>
-      <p class="muted">Browse and play your favorites.</p>
-      <div class="games">
-        <article class="game-item">
-          <img src="assets/snake-apple.webp" alt="Snake game" />
-          <h3>Snake Game</h3>
-          <p>Classic snake. Eat apples, grow long, don’t crash.</p>
-        </article>
-        <article class="game-item">
-          <img src="assets/tic-tac-toe.png" alt="Tic Tac Toe" />
-          <h3>Tic-Tac-Toe</h3>
-          <p>Battle the CPU in a quick best-of-five.</p>
-        </article>
-        <article class="game-item">
-          <img src="assets/car-racing.png" alt="Car Racing" />
-          <h3>Car Racing</h3>
-          <p>Fast-paced racer. Overtake, collect boosts, win.</p>
-        </article>
-      </div>
-    </section>
+        <!-- Hero Section -->
+        <section id="hero" class="text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-fade-in-down">
+                Hello, I'm <span class="text-accent-blue">Aniket</span>
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 animate-fade-in">
+                A passionate web developer building interactive and user-friendly web applications.
+            </p>
+            <div class="flex justify-center space-x-4 animate-fade-in-up">
+                <a href="#projects" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg">
+                    View My Work
+                </a>
+                <a href="#contact" class="border border-gray-500 hover:border-accent-blue text-text-light hover:text-accent-blue font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">
+                    Get In Touch
+                </a>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="bg-secondary-dark p-8 rounded-xl shadow-lg border border-gray-700">
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-accent-blue pb-2 inline-block">About Me</h2>
+            <p class="text-gray-300 text-lg">
+                I am a dedicated front-end developer with a strong foundation in HTML, CSS, and JavaScript. My goal is to create clean, efficient, and dynamic web experiences. I am always eager to learn new technologies and improve my skills to build high-quality applications.
+            </p>
+            <p class="text-gray-300 mt-4 text-lg">
+                My projects reflect my passion for problem-solving and my commitment to writing clean and maintainable code. I enjoy turning ideas into reality and am always looking for new challenges.
+            </p>
+        </section>
 
-    <!-- Demo Videos Section -->
-    <section id="video">
-      <h2>Game Demo Videos</h2>
-      <p class="muted">Watch our latest gameplay demos on YouTube!</p>
-      <div class="video-grid">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1"
-          title="Game Demo 1" frameborder="0" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2"
-          title="Game Demo 2" frameborder="0" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"
-          title="Game Demo 3" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </section>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="text-3xl font-bold mb-8 text-center border-b-2 border-accent-blue pb-2 inline-block mx-auto">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <section id="about">
-      <h2>About</h2>
-      <p class="muted">Built by <strong>Aniket Sundriyal</strong> (aka Gx aniket). Clean UI, smooth vibes, and games that just hit.</p>
-    </section>
+                <!-- Tic-Tac-Toe Project Card -->
+                <div class="bg-secondary-dark rounded-xl shadow-lg border border-gray-700 overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/334155/f8fafc?text=TicTacToe" alt="Tic-Tac-Toe Web Game Screenshot" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-accent-blue mb-2">Tic-Tac-Toe Web Game</h3>
+                        <p class="text-gray-400 mb-4">A classic two-player game for the web with interactive gameplay and logic.</p>
+                        <div class="space-y-3 mb-6">
+                            <div>
+                                <h4 class="font-medium text-text-light">Key Features:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>Interactive and responsive UI.</li>
+                                    <li>Full game logic to detect wins, losses, and draws.</li>
+                                    <li>Simple and intuitive user experience.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-text-light">Technologies Used:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>HTML, CSS, JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <a href="https://gxaniket.github.io/TicTacToe-Web-game./" target="_blank" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light py-2 px-4 rounded-md text-sm font-medium transition-colors">
+                                View Live
+                            </a>
+                            <a href="https://github.com/gxaniket/TicTacToe-Web-game." target="_blank" class="text-gray-400 hover:text-accent-blue transition-colors text-sm font-medium">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p class="muted">Got ideas or bugs? Reach out to me below 👇</p>
-      <div class="contact-links">
-        <a href="mailto:sundriyalaniket@gmail.com">📧 Email</a>
-        <a href="https://www.linkedin.com/in/aniket-sundriyal" target="_blank">💼 LinkedIn</a>
-        <a href="https://github.com/Gxaniket" target="_blank">🐙 GitHub</a>
-      </div>
-    </section>
-  </main>
+                <!-- Calculator Project Card -->
+                <div class="bg-secondary-dark rounded-xl shadow-lg border border-gray-700 overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/334155/f8fafc?text=Calculator" alt="Calculator Web App Screenshot" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-accent-blue mb-2">Calculator</h3>
+                        <p class="text-gray-400 mb-4">A modern and fully functional standard calculator with a clean design.</p>
+                        <div class="space-y-3 mb-6">
+                            <div>
+                                <h4 class="font-medium text-text-light">Key Features:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>Performs basic arithmetic operations accurately.</li>
+                                    <li>User-friendly and intuitive button layout.</li>
+                                    <li>Responsive design for different screen sizes.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-text-light">Technologies Used:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>HTML, CSS, JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <a href="https://gxaniket.github.io/html-css-js-calculator/" target="_blank" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light py-2 px-4 rounded-md text-sm font-medium transition-colors">
+                                View Live
+                            </a>
+                            <a href="https://github.com/gxaniket/html-css-js-calculator" target="_blank" class="text-gray-400 hover:text-accent-blue transition-colors text-sm font-medium">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-  <footer>
-    <p>© <span id="year"></span> Aniket Sundriyal • Gx aniket.yt</p>
-  </footer>
+                <!-- Music Player Project Card -->
+                <div class="bg-secondary-dark rounded-xl shadow-lg border border-gray-700 overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/334155/f8fafc?text=Music+Player" alt="Music Player Web App Screenshot" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-accent-blue mb-2">Music Player</h3>
+                        <p class="text-gray-400 mb-4">A simple, clean, and functional web-based music player.</p>
+                        <div class="space-y-3 mb-6">
+                            <div>
+                                <h4 class="font-medium text-text-light">Key Features:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>Full playback controls (play, pause, next/previous).</li>
+                                    <li>Displays song metadata and album art.</li>
+                                    <li>Interactive progress bar to track song time.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-text-light">Technologies Used:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>HTML, CSS, JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <a href="https://gxaniket.github.io/music-player/" target="_blank" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light py-2 px-4 rounded-md text-sm font-medium transition-colors">
+                                View Live
+                            </a>
+                            <a href="https://github.com/gxaniket/music-player" target="_blank" class="text-gray-400 hover:text-accent-blue transition-colors text-sm font-medium">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-  <script>
-    // Dynamic year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+                <!-- Encryptor and Decryptor Project Card -->
+                <div class="bg-secondary-dark rounded-xl shadow-lg border border-gray-700 overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/334155/f8fafc?text=Encryptor" alt="Encryptor/Decryptor Web App Screenshot" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-accent-blue mb-2">Encryptor & Decryptor</h3>
+                        <p class="text-gray-400 mb-4">A tool for encrypting and decrypting text using a basic custom algorithm.</p>
+                        <div class="space-y-3 mb-6">
+                            <div>
+                                <h4 class="font-medium text-text-light">Key Features:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>Demonstrates understanding of basic data security concepts.</li>
+                                    <li>Performs real-time encryption and decryption as the user types.</li>
+                                    <li>Simple interface for quick and easy use.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-text-light">Technologies Used:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>HTML, CSS, JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <a href="https://gxaniket.github.io/encryptor-decryptor-version-1" target="_blank" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light py-2 px-4 rounded-md text-sm font-medium transition-colors">
+                                View Live
+                            </a>
+                            <a href="https://github.com/gxaniket/encryptor-decryptor-version-1" target="_blank" class="text-gray-400 hover:text-accent-blue transition-colors text-sm font-medium">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Page Project Card -->
+                <div class="bg-secondary-dark rounded-xl shadow-lg border border-gray-700 overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/334155/f8fafc?text=Login+Page" alt="Login Page Web App Screenshot" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-accent-blue mb-2">Login Page</h3>
+                        <p class="text-gray-400 mb-4">A professional and visually appealing login form with client-side validation.</p>
+                        <div class="space-y-3 mb-6">
+                            <div>
+                                <h4 class="font-medium text-text-light">Key Features:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>Validates user input to ensure proper format (e.g., email syntax).</li>
+                                    <li>Provides dynamic error messages and feedback to the user.</li>
+                                    <li>Clean and modern user interface.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-text-light">Technologies Used:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>HTML, CSS, JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <a href="https://gxaniket.github.io/login-page-html-css-js/" target="_blank" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light py-2 px-4 rounded-md text-sm font-medium transition-colors">
+                                View Live
+                            </a>
+                            <a href="https://github.com/gxaniket/login-page-html-css-js" target="_blank" class="text-gray-400 hover:text-accent-blue transition-colors text-sm font-medium">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diabetes Prediction Project Card -->
+                <div class="bg-secondary-dark rounded-xl shadow-lg border border-gray-700 overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/334155/f8fafc?text=Diabetes+Prediction" alt="Diabetes Prediction App Screenshot" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-accent-blue mb-2">Diabetes Prediction App</h3>
+                        <p class="text-gray-400 mb-4">An application that predicts the likelihood of diabetes using a machine learning model.</p>
+                        <div class="space-y-3 mb-6">
+                            <div>
+                                <h4 class="font-medium text-text-light">Key Features:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>Integrates a backend machine learning model for predictions.</li>
+                                    <li>Gathers and processes multiple health metrics from the user.</li>
+                                    <li>A great example of a full-stack application.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-text-light">Technologies Used:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                                    <li>Python (Flask), HTML, CSS, JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <a href="https://gxaniket.github.io/diabetes-prediction-app/" target="_blank" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light py-2 px-4 rounded-md text-sm font-medium transition-colors">
+                                View Live
+                            </a>
+                            <a href="https://github.com/gxaniket/diabetes-prediction-app" target="_blank" class="text-gray-400 hover:text-accent-blue transition-colors text-sm font-medium">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="text-center py-12 md:py-24">
+            <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+            <p class="text-lg text-gray-400 mb-8">
+                I'm currently open to new opportunities. Feel free to reach out!
+            </p>
+            <a href="mailto:your-email@example.com" class="bg-accent-blue hover:bg-accent-blue-hover text-text-light font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg">
+                Email Me
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-dark p-6 text-center text-gray-400 border-t border-gray-700">
+        <p>&copy; 2024 Aniket. All Rights Reserved.</p>
+        <div class="mt-4 space-x-4">
+            <!-- Social Media Icons (replace with your links) -->
+            <a href="#" target="_blank" class="hover:text-accent-blue transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block"><path d="M15 22l-1.543-1.043l-1.543 1.043L9.5 22v-6H7.5V9.5h-2V7.5h2V5.5a4.5 4.5 0 0 1 4.5-4.5h2.5v2h-2.5c-.552 0-1 .448-1 1v2h3L14.5 9.5h-3v6h4z"></path></svg>
+            </a>
+            <a href="#" target="_blank" class="hover:text-accent-blue transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block"><path d="M12 2.163c3.204 0 3.584.012 4.85.07c3.252.148 4.698 1.408 4.848 4.61.058 1.265.07 1.645.07 4.849 0 3.203-.012 3.583-.07 4.848-.15 3.252-1.408 4.698-4.61 4.848-1.265.058-1.645.07-4.849.07-3.203 0-3.583-.012-4.848-.07-3.252-.15-4.698-1.408-4.848-4.61-.058-1.265-.07-1.645-.07-4.849 0-3.203.012-3.583.07-4.848.15-3.252 1.408-4.698 4.61-4.848 1.265-.058 1.645-.07 4.849-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.212-6.541 2.394-6.753 6.752-.058 1.28-.072 1.688-.072 4.947 0 3.259.014 3.668.072 4.948.212 4.358 2.394 6.541 6.753 6.753 1.28.058 1.688.072 4.947.072 3.259 0 3.668-.014 4.948-.072 4.357-.212 6.541-2.394 6.753-6.752.058-1.28.072-1.688.072-4.947 0-3.259-.014-3.667-.072-4.947-.212-4.358-2.394-6.541-6.752-6.753-1.28-.058-1.688-.072-4.947-.072zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.5-10.519a1.442 1.442 0 1 0 0 2.884 1.442 1.442 0 0 0 0-2.884z"></path></svg>
+            </a>
+        </div>
+    </footer>
+
 </body>
 </html>
